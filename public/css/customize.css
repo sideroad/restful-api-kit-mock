@@ -19,6 +19,16 @@
   background-color: #222;
 }
 
+.cm-sidebar .uk-nav-side>li.uk-active>a{
+  background-color: #FFFB7A;
+  color: #444;
+}
+
+.cm-sidebar .uk-nav-side > li > a:hover,
+.cm-sidebar .uk-nav-side > li > a:focus {
+  background: #FFFDBD;
+}
+
 .uk-grid+.cm-grid{
   margin-top: 0px;
 }
@@ -43,7 +53,7 @@
   background: #fdfdfd;
 }
 .cm-table.uk-table-hover tbody tr:hover {
-  background: #fafafa;
+  background: #FFFDBD;
 }
 
 .cm-table i{
@@ -67,7 +77,6 @@ a.cm-nav-plus{
   width: 100%;
   height: 100%;
   display: block;
-  background-color: #eee;
   text-align: center;
   color: black;
   padding: 12px 0px;
@@ -83,12 +92,11 @@ a.cm-row-plus{
   color: black;
   padding: 12px 0px;
   border-radius: 3px;
-  border: 1px solid #ccc;
   box-sizing: border-box;
 }
 
 a.cm-row-plus:hover{
-  background-color: #e4e4e4;
+  background-color: #FFFDBD;
 }
 
 .cm-icon{
@@ -106,4 +114,55 @@ a.cm-row-plus:hover{
 
 .cm-footer .uk-container{
   padding: 0px;
+}
+
+/** checkbox */
+input[type=checkbox] + label{
+  font-size: 24px;
+  display: block;
+}
+
+input[type=checkbox] {
+  display:none;
+}
+
+input[type=checkbox] + label:before {
+  font-family: FontAwesome;
+  display: block;
+  content: "\f096";
+}
+
+input[type=checkbox]:checked + label:before {
+  content: "\f046";
+  color: #00a8e6;
+  letter-spacing: -4px;
+}
+
+/** turn-off */
+@keyframes turn-on{
+  0%{
+    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+    transform:scale(0.000,0.005) translate3d(0,0,0);
+    -webkit-filter:brightness(100);
+    filter:brightness(100) contrast(0);
+    background-color: black;
+    color: black;
+  }
+  40%{
+    transform:scale(1.3,0.005) translate3d(0,0,0);
+    -webkit-filter:brightness(10);
+    filter:brightness(10);
+    background-color: black;
+  }
+  100%{
+    transform:scale(1,1) translate3d(0,0,0);
+    -webkit-filter:brightness(1);
+    filter:brightness(1);
+    opacity:1;
+  }
+}
+
+.cm-tv{
+  animation: turn-on 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+  animation-fill-mode:forwards;
 }
