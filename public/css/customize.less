@@ -1,32 +1,47 @@
+@nav-text: #ECE617;
+@nav-back: #222;
+@contents: #444;
+@contents-active: #FFFB7A;
+@contents-hover: #FFFDBD;
+@ease-out-quint:cubic-bezier(0.230, 1.000, 0.320, 1.000);
+@ease-in-quint:cubic-bezier(0.755, 0.050, 0.855, 0.060);
+
+
 .cm-navbar{
-  background-color: #222;
+  background-color: @nav-back;
   padding: 8px 15px;
+}
+
+.uk-navbar-nav>li>a.cm-logo{
+  font-size: 32px;
+  font-family: 'Montserrat';
 }
 
 .cm-logo img{
   height: 32px;
+  vertical-align: text-top;
 }
 
 .cm-navbar .uk-navbar-nav>li>a{
-  color: #ECE617;
+  color: @nav-text;
 }
 
 .cm-navbar .uk-navbar-nav>li>a:hover{
-  background-color: #444;
+  background-color: @contents;
 }
 
 .cm-navbar .uk-navbar-nav>li.uk-active>a{
-  background-color: #222;
+  background-color: @nav-back;
 }
 
 .cm-sidebar .uk-nav-side>li.uk-active>a{
-  background-color: #FFFB7A;
-  color: #444;
+  background-color: @contents-active;
+  color: @contents;
 }
 
 .cm-sidebar .uk-nav-side > li > a:hover,
 .cm-sidebar .uk-nav-side > li > a:focus {
-  background: #FFFDBD;
+  background: @contents-hover;
 }
 
 .uk-grid+.cm-grid{
@@ -57,16 +72,11 @@
 }
 
 .cm-table i{
-  color: #444;
+  color: @contents;
 }
 
 .cm-table tr td.cm-row-plus{
   padding: 4px 0px;
-}
-
-.cm-table tr td input[type=checkbox]{
-  width: 100%;
-  height: 100%;
 }
 
 .cm-table tfoot tr td{
@@ -104,8 +114,8 @@ a.cm-row-plus:hover{
 }
 
 .cm-footer{
-  background-color: #222;
-  color: #ECE617;
+  background-color: @nav-back;
+  color: @nav-text;
   position: absolute;
   bottom: 0px;
   padding: 15px;
@@ -117,44 +127,75 @@ a.cm-row-plus:hover{
 }
 
 /** checkbox */
-input[type=checkbox] + label{
+input[type=checkbox].checkbox + label{
   font-size: 24px;
   display: block;
 }
 
-input[type=checkbox] {
+input[type=checkbox].checkbox {
   display:none;
 }
 
-input[type=checkbox] + label:before {
+input[type=checkbox].checkbox + label:before {
   font-family: FontAwesome;
   display: block;
   content: "\f096";
 }
 
-input[type=checkbox]:checked + label:before {
+input[type=checkbox].checkbox:checked + label:before {
   content: "\f046";
   color: #00a8e6;
   letter-spacing: -4px;
 }
 
+input[type=checkbox].text {
+  display: none;
+}
+
+input[type=checkbox].text + label{
+  cursor: pointer;
+}
+
+input[type=checkbox].text ~ .text{
+  display: none;
+}
+
+input[type=checkbox].text:checked ~ .text{
+  display: block;
+}
+
+
 /** turn-off */
 @keyframes turn-on{
   0%{
-    animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
-    transform:scale(0.000,0.005) translate3d(0,0,0);
-    -webkit-filter:brightness(100);
-    filter:brightness(100) contrast(0);
+    transform:scale(0.003,0.003) translate3d(0,0,0);
+    -webkit-filter:brightness(0);
+    filter:brightness(0);
     background-color: black;
     color: black;
   }
-  40%{
-    transform:scale(1.3,0.005) translate3d(0,0,0);
-    -webkit-filter:brightness(10);
-    filter:brightness(10);
+  70%{
+    transform:scale(1.3,0.003) translate3d(0,0,0);
+    -webkit-filter:brightness(0);
+    filter:brightness(0);
     background-color: black;
+    color: black;
+  }
+  71%{
+    transform:scale(1.3,0.003) translate3d(0,0,0);
+    -webkit-filter:brightness(1);
+    filter:brightness(1);
+    background-color: white;
+    color: gray;
+  }
+  85%{
+    transform:scale(0.8,1.3) translate3d(0,0,0);
+    -webkit-filter:brightness(1);
+    filter:brightness(1);
+    opacity:1;
   }
   100%{
+    animation-timing-function: @ease-out-quint;
     transform:scale(1,1) translate3d(0,0,0);
     -webkit-filter:brightness(1);
     filter:brightness(1);
@@ -163,6 +204,6 @@ input[type=checkbox]:checked + label:before {
 }
 
 .cm-tv{
-  animation: turn-on 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000);
+  animation: turn-on 0.5s @ease-in-quint;
   animation-fill-mode:forwards;
 }

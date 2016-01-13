@@ -9,10 +9,14 @@
 
     <link href="images/favicon.png" rel="shortcut icon">
 
-    <!-- link all the styles -->
-    <link rel="stylesheet" href="css/uikit.min.css" />
-    <link rel="stylesheet" href="css/customize.css" />
 
+
+    <!-- link all the styles -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <link rel="stylesheet/less" href="css/customize.less" />
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,7 +31,7 @@
       <div class="uk-width-1-1">
         <nav class="uk-navbar cm-navbar">
           <ul class="uk-navbar-nav">
-              <li class="uk-active"><a class="cm-logo" href=""><img src="images/logo.png"></a></li>
+              <li class="uk-active"><a class="cm-logo" href="">REST<img src="images/logo.png">KIT</a></li>
           </ul>
 
           <div class="uk-navbar-flip">
@@ -70,8 +74,8 @@
             <tbody>
               <tr>
                 <td>name</td>
-                <td class="uk-text-center"><input id="uniq-name" type="checkbox" name="uniq" value="true"/><label for="uniq-name"></label></td>
-                <td class="uk-text-center"><input id="required-name" type="checkbox" name="required" value="true"/><label for="required-name"></label></td>
+                <td class="uk-text-center"><input id="uniq-name" class="checkbox" type="checkbox" name="uniq" value="true"/><label for="uniq-name"></label></td>
+                <td class="uk-text-center"><input id="required-name" class="checkbox" type="checkbox" name="required" value="true"/><label for="required-name"></label></td>
                 <td>
                   <select class="" name="type">
                     <option>string</option>
@@ -89,8 +93,9 @@
                   </select>
                 </td>
                 <td class="uk-text-center">
-                  <input type="text" name="regexp" value="" class="uk-width-8-10">
-                  <a href="#" class="uk-width-2-10"><i class="uk-icon-file-text-o uk-icon-small"></i></a>
+                  <input type="text" name="regexp" value="" class="uk-width-8-10" placeholder="Regular expression" />
+                  <input id="invalid-message-icon" type="checkbox" class="text" /><label for="invalid-message-icon" class="uk-width-2-10" ><i class="uk-icon-file-text-o uk-icon-small"></i></label>
+                  <p class="text" ><textarea class="uk-width-1-1" placeholder="Invalid message"></textarea></p>
                 </td>
                 <td class="uk-text-center">
                   <a href="#"><i class="uk-icon-cog uk-icon-small cm-icon"></i></a>
@@ -99,8 +104,8 @@
               </tr>
               <tr>
                 <td>president</td>
-                <td class="uk-text-center"><input id="uniq-president" type="checkbox" name="uniq" value="true"/><label for="uniq-president"></label></td>
-                <td class="uk-text-center"><input id="required-president" type="checkbox" name="required" value="true"/><label for="required-president" ></label></td>
+                <td class="uk-text-center"><input id="uniq-president" class="checkbox" type="checkbox" name="uniq" value="true"/><label for="uniq-president"></label></td>
+                <td class="uk-text-center"><input id="required-president" class="checkbox" type="checkbox" name="required" value="true"/><label for="required-president" ></label></td>
                 <td>
                   <select class="" name="type">
                     <option>string</option>
